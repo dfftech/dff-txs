@@ -1,0 +1,7 @@
+{
+    "PrintConsole": {
+        "prefix": "dxlog",
+        "body": [ "console.log('$1 => ', $1);" ],
+        "description": "console log"
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "PrintConsole": {
+        "prefix": "dtlog",
+        "body": [ "console.log('$1 => ', $1);" ],
+        "description": "console log"
+    },
+    "ApiPostCall": {
+        "prefix": "dtapc",
+        "body": [
+            "const apiPost${1/(.*)/${1:/capitalize}/} = async (data: any) => {",
+            "\tconst url = MsUrl.${2} + \"/${3}\";",
+            "\tconst body = { ...data };",
+            "\tconst res = await AppHttp.Post(url, body);",
+            "\treturn res;",
+            "};"
+        ],
+        "description": "API post call"
+    },
+    "ApiGetCall": {
+        "prefix": "dtagc",
+        "body": [
+            "const apiGet${1/(.*)/${1:/capitalize}/} = async (data: any) => {",
+            "\tconst url = MsUrl.${2} + \"/${3}\";",
+            "\tconst params = { ...data };",
+            "\tconst res = await AppHttp.Get(url, params);",
+            "\treturn res;",
+            "};"
+        ],
+        "description": "API Get call"
+    },
+    "ApiDeleteCall": {
+        "prefix": "dtadc",
+        "body": [
+            "const apiDelete${1/(.*)/${1:/capitalize}/} = async (data: any) => {",
+            "\tconst url = MsUrl.${2} + \"/${3}\";",
+            "\tconst params = { ...data };",
+            "\tconst res = await AppHttp.Delete(url, params);",
+            "\treturn res;",
+            "};"
+        ],
+        "description": "API Delete call"
+    },
+    "onAsyncFunction": {
+        "prefix": "dtoaf",
+        "body": [
+            "export const on${1/(.*)/${1:/capitalize}/} = async (data: any) => {",
+            "\ttry {",
+            "\t\tShowLoader(true);",
+            "\t\tconsole.log(\"on${1/(.*)/${1:/capitalize}/} data :: \", data);",
+            "\t\tconst resp = await apiPost${1/(.*)/${1:/capitalize}/}(data);",
+            "\t\tconsole.log(\"on${1/(.*)/${1:/capitalize}/} resp :: \", resp);",
+            "\t\treturn resp;",
+            "\t} catch (error: any) {",
+            "\t\tconsole.error(\"on${1/(.*)/${1:/capitalize}/} error :: \", error);",
+            "\t\tconst messsage = error?.error?.message || ConstMessages.WENT_WRONG;",
+            "\t\tShowToast(messsage, \"error\");",
+            "\t} finally {",
+            "\t\tShowLoader(false);",
+            "\t}",
+            "};"
+        ],
+        "description": "Async function with loader, toast, and logging"
+    }
+}

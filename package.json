@@ -1,0 +1,33 @@
+{
+  "name": "dff-txs",
+  "displayName": "dff-txs",
+  "description": "Dff Typescript Snippets",
+  "version": "1.0.0",
+  "publisher": "dfftech",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://dfftech@dev.azure.com/dfftech/dff-code/_git/dff-txs"
+  },
+  "license": "MIT",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescriptreact.code-snippets"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0"
+  }
+}
