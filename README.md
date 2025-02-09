@@ -1,6 +1,6 @@
 # Typescript
 
-### dflo
+### dtlog
 
 ```
 console.log('$1 => ', $1);
@@ -61,7 +61,7 @@ const apiDelete${1/(.*)/${1:/capitalize}/} = async (data: any) => {
 
 # Typescriptreact
 
-### dxlo
+### dxlog
 
 ```
 console.log('$1 => ', $1);
