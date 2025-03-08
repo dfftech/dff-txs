@@ -16,7 +16,7 @@
             "\t\treset({ ...$1 });",
             "\t};",
             "\tconst onSubmit${1/(.*)/${1:/capitalize}/} = async (data: ${1/(.*)/${1:/capitalize}/}Type) => {",
-            "\t\tconsole.log(\"data $1 : \", data);",
+            "\t\tconsole.log('data $1 : ', data);",
             "\t\tRouterChange(AppRouter.INDEX);",
             "\t};",
             "\tconst onCancel= () => {",
