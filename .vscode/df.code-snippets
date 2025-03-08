@@ -8,7 +8,7 @@
         "prefix": "dxrhf",
         "body": [ 
             "\tconst [$1, set${1/(.*)/${1:/capitalize}/}] = useState<${1/(.*)/${1:/capitalize}/}Type>({} as ${1/(.*)/${1:/capitalize}/}Type);",
-            "\tconst { handleSubmit, control, reset, formState: { errors } } = useForm<${1/(.*)/${1:/capitalize}/}Type>({});",
+            "\tconst { handleSubmit, control, reset, formState: { errors } } = useForm<${1/(.*)/${1:/capitalize}/}Type>({} as ${1/(.*)/${1:/capitalize}/}Type);",
             "\tconst onDefault${1/(.*)/${1:/capitalize}/} = () => {",
             "\t\tset${1/(.*)/${1:/capitalize}/}({} as ${1/(.*)/${1:/capitalize}/}Type);",
             "\t};",
