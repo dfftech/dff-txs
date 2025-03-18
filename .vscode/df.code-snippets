@@ -4,15 +4,14 @@
         "body": [ "console.log('$1 => ', $1);" ],
         "description": "console log"
     },
-   "ReactHookForms": {
+    "ReactHookForms": {
         "prefix": "dxrhf",
         "body": [ 
             "\tconst [$1, set${1/(.*)/${1:/capitalize}/}] = React.useState<${1/(.*)/${1:/capitalize}/}Type>({} as ${1/(.*)/${1:/capitalize}/}Type);",
             "\tconst { handleSubmit, control, reset, formState: { errors } } = useForm<${1/(.*)/${1:/capitalize}/}Type>({});",
             "\tReact.useEffect(() => {",
-            "\t\tonDefaul${1/(.*)/${1:/capitalize}/}();",
+            "\t\tonDefault${1/(.*)/${1:/capitalize}/}();",
             "\t\tonReset${1/(.*)/${1:/capitalize}/}();",
-            "\t\t",
             "\t// eslint-disable-next-line react-hooks/exhaustive-deps",
             "\t}, []);",
             "\tconst onDefault${1/(.*)/${1:/capitalize}/} = () => {",
@@ -29,12 +28,78 @@
             "\t\tRouterChange(AppRouter.INDEX);",
             "\t};",
             "\tconst ComponentSubmit = () => (",
-            "\t\t<TypeButton name=\"SendHorizontal\" label=\"Submit\" onPress={handleSubmit(onSubmit${1/(.*)/${1:/capitalize}/})} />",
+            "\t\t<TypeButton name=\"SendHorizontal\" label=\"Submit\"  isLoading=\"isSubmitLoading.value\" onClick={handleSubmit(onSubmit${1/(.*)/${1:/capitalize}/})} />",
             "\t);",
             "\tconst ComponentCancel = () => (",
             "\t\t<TypeButton name=\"CircleX\" label=\"Cancel\" action=\"negative\" onPress={onCancel} />",
             "\t);",
         ],
         "description": "React hook forms"
+    },
+    "TypeInput": {
+        "prefix": "dxtip",
+        "body": [
+            "\tconst Component${1/(.*)/${1:/capitalize}/} = () => {",
+            "\t\treturn (",
+            "\t\t\t<TypeInput",
+            "\t\t\t\trequired={true}",
+            "\t\t\t\tcontrol={control}",
+            "\t\t\t\tname={$2.$1}",
+            "\t\t\t\tlabel={\"${1/(.*)/${1:/capitalize}\"}",
+            "\t\t\t\tvalue={$2.$1 || ''}",
+            "\t\t\t\trules={${2/(.*)/${2:/capitalize}Rule.$1}}",
+            "\t\t\t\terror={error}",
+            "\t\t\t\tdisabled={false}",
+            "\t\t\t/>",
+            "\t\t);",
+            "\t};"
+        ],
+        "description": "TypeInput component"
+    },
+    "TypeSelect": {
+        "prefix": "dxtsl",
+        "body": [
+        "\tconst Component${1/(.*)/${1:/capitalize}/} = () => {",
+        "\t\tconst [$1List, set${1/(.*)/${1:/capitalize}List] = React.useState<TypeOptions[]>([]);",
+        "\t\tconst $1Load = async () => {",
+        "\t\t\tconst resp = await on${1/(.*)/${1:/capitalize}Load(`\\load$1`);",
+        "\t\t\tset${1/(.*)/${1:/capitalize}List(resp || []);",
+        "\t\t};",
+        "\t\treturn (",
+        "\t\t\t<TypeSelect",
+        "\t\t\t\trequired={true}",
+        "\t\t\t\tcontrol={control}",
+        "\t\t\t\tname={$2.$1}",
+        "\t\t\t\tlabel={\"${1/(.*)/${1:/capitalize}\"}",
+        "\t\t\t\tvalue={$2.$1 || ''}",
+        "\t\t\t\trules={${2/(.*)/${2:/capitalize}Rule.$1}}",
+        "\t\t\t\terror={error}",
+        "\t\t\t\tdisabled={false}",
+        "\t\t\t\tmultiSelect={false}",
+        "\t\t\t\toptions={$1List}",
+        "\t\t\t/>",
+        "\t\t);",
+        "\t};"
+        ],
+        "description": "TypeSelect component with loading options"
+    },
+    "Component": {
+        "prefix": "dxtcb",
+        "body": [
+          "\tconst Component${1/(.*)/${1:/capitalize} = () => {",
+          "\t\treturn (",
+          "\t\t\t<TypeCheckbox",
+          "\t\t\t\tcontrol = {control}",
+          "\t\t\t\tname = {$2.$1}",
+          "\t\t\t\tlabel = {\"${1/(.*)/${1:/capitalize}\"}",
+          "\t\t\t\tvalue = {$2.$1 || ''}",
+          "\t\t\t\trules = {${2/(.*)/${2:/capitalize}Rule.$1}}",
+          "\t\t\t\terror = {error}",
+          "\t\t\t\tdisabled = {false}",
+          "\t\t\t/>",
+          "\t\t);",
+          "\t};"
+        ],
+        "description": "TypeCheckbox component"
     }
 }

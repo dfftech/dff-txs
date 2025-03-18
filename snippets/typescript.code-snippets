@@ -43,11 +43,14 @@
     "onAsyncFunction": {
         "prefix": "dtoaf",
         "body": [
+            "export const is${1/(.*)/${1:/capitalize}/}Loading = signal<boolean>(false);",
             "export const on${1/(.*)/${1:/capitalize}/} = async (data: any) => {",
             "\ttry {",
-            "\t\tShowLoader(true);",
+            "\t\tis${1/(.*)/${1:/capitalize}/}Loading.value = true;",
             "\t\tconsole.log(\"on${1/(.*)/${1:/capitalize}/} data :: \", data);",
-            "\t\tconst resp = await apiPost${1/(.*)/${1:/capitalize}/}(data);",
+            "\t\tconst url = MsUrl. + ApiUrl. ;",
+            "\t\tconst params = { ...data };",
+            "\t\tconst res = await AppHttp.Post(url, params);",
             "\t\tconsole.log(\"on${1/(.*)/${1:/capitalize}/} resp :: \", resp);",
             "\t\treturn resp;",
             "\t} catch (error: any) {",
@@ -55,7 +58,7 @@
             "\t\tconst messsage = error?.error?.message || ConstMessages.WENT_WRONG;",
             "\t\tShowToast(messsage, \"error\");",
             "\t} finally {",
-            "\t\tShowLoader(false);",
+            "\t\tis${1/(.*)/${1:/capitalize}/}Loading.value = true;",
             "\t}",
             "};"
         ],

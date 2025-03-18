@@ -23,3 +23,6 @@
 - To share your extension with the world, read on https://code.visualstudio.com/docs about publishing an extension.
 
 ## vsce publish
+
+
+convert the code with tab spaces replaced with \t and formatted as a vscode snippets:
