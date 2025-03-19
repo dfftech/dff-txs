@@ -6,10 +6,6 @@
 console.log('$1 => ', $1);
 ```
 
-```
-```
-
-
 
 ### dtapc
 
@@ -17,8 +13,8 @@ console.log('$1 => ', $1);
 const apiPost${1/(.*)/${1:/capitalize}/} = async (data: any) => {
     const url = MsUrl.${2} + /${3};
     const body = { ...data };
-    const res = await AppHttp.Post(url, body);
-    return res;
+    const resp = await AppHttp.Post(url, body);
+    return resp;
 };
 ```
 
@@ -28,8 +24,8 @@ const apiPost${1/(.*)/${1:/capitalize}/} = async (data: any) => {
 const apiGet${1/(.*)/${1:/capitalize}/} = async (data: any) => {
     const url = MsUrl.${2} + /${3};
     const params = { ...data };
-    const res = await AppHttp.Get(url, params);
-    return res;
+    const resp = await AppHttp.Get(url, params);
+    return resp;
 };
 ```
 
@@ -39,8 +35,8 @@ const apiGet${1/(.*)/${1:/capitalize}/} = async (data: any) => {
 const apiDelete${1/(.*)/${1:/capitalize}/} = async (data: any) => {
     const url = MsUrl.${2} + /${3};
     const params = { ...data };
-    const res = await AppHttp.Delete(url, params);
-    return res;
+    const resp = await AppHttp.Delete(url, params);
+    return resp;
 };
 ```
 
@@ -54,7 +50,7 @@ export const on${1/(.*)/${1:/capitalize}/} = async (data: any) => {
         console.log(\on${1/(.*)/${1:/capitalize}/} data :: \, data);
         const url = MsUrl. + ApiUrl. ;
         const params = { ...data };
-        const res = await AppHttp.Post(url, params);
+        const resp = await AppHttp.Post(url, params);
         console.log(\on${1/(.*)/${1:/capitalize}/} resp :: \, resp);
         return resp;
     } catch (error: any) {

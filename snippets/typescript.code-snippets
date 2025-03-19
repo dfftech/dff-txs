@@ -50,7 +50,7 @@
             "\t\tconsole.log(\"on${1/(.*)/${1:/capitalize}/} data :: \", data);",
             "\t\tconst url = MsUrl. + ApiUrl. ;",
             "\t\tconst params = { ...data };",
-            "\t\tconst res = await AppHttp.Post(url, params);",
+            "\t\tconst resp = await AppHttp.Post(url, params);",
             "\t\tconsole.log(\"on${1/(.*)/${1:/capitalize}/} resp :: \", resp);",
             "\t\treturn resp;",
             "\t} catch (error: any) {",
