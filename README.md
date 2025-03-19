@@ -82,8 +82,8 @@ console.log('$1 => ', $1);
 ### dxrhf
 
 ```
+const $1Rule = ${1/(.*)/${1:/capitalize}Validation;
 const [$1, set${1/(.*)/${1:/capitalize}/}] = React.useState<${1/(.*)/${1:/capitalize}/}Type>({} as ${1/(.*)/${1:/capitalize}/}Type);
-const ${1/(.*)/${1:/capitalize}Rule = ${1/(.*)/${1:/capitalize}Validation;
 const { handleSubmit, control, reset, formState: { errors } } = useForm<${1/(.*)/${1:/capitalize}/}Type>({});
 React.useEffect(() => {
     onDefault${1/(.*)/${1:/capitalize}/}();
@@ -114,15 +114,15 @@ const ComponentCancel = () => (
 ### dxtip
 
 ```
-    const Component${1/(.*)/${1:/capitalize} = () => {
+    const Component${1/(.*)/${1:/capitalize}/} = () => {
         return (
             <TypeInput
                 required = {true}
                 control = {control}
                 name = {$2.$1}
-                label = {"${1/(.*)/${1:/capitalize}"}
+                label = {"${1/(.*)/${1:/capitalize}/}"}
                 value = {$2.$1 || ''}
-                rules = {${2/(.*)/${2:/capitalize}Rule.$1}
+                rules = {$2Rule.$1}
                 error = {error}
                 disabled = {false}
             />
@@ -133,20 +133,20 @@ const ComponentCancel = () => (
 ### dxtsl
 
 ```
-    const Component${1/(.*)/${1:/capitalize} = () => {
+    const Component${1/(.*)/${1:/capitalize}/} = () => {
         const [$1List, set${1/(.*)/${1:/capitalize}List] = React.useState<TypeOptions[]>([]);
         const $1Load = async () => {
-            const resp = await on${1/(.*)/${1:/capitalize}Load(`\load\$1`);
-            set${1/(.*)/${1:/capitalize}List(resp || []);
+            const resp = await on${1/(.*)/${1:/capitalize}/}Load(`\load\$1`);
+            set${1/(.*)/${1:/capitalize}/}List(resp || []);
         };
         return (
             <TypeSelect
                 required = {true}
                 control = {control}
                 name = {$2.$1}
-                label = {"${1/(.*)/${1:/capitalize}"}
+                label = {"${1/(.*)/${1:/capitalize}/}"}
                 value = {$2.$1 || ''}
-                rules = {${2/(.*)/${2:/capitalize}Rule.$1}
+                rules = {$2$Rule.$1}
                 error = {error}
                 disabled = {false}
                 multiSelect = {false}
@@ -159,14 +159,14 @@ const ComponentCancel = () => (
 ### dxtcb
 
 ```
-    const Component${1/(.*)/${1:/capitalize} = () => {
+    const Component${1/(.*)/${1:/capitalize}/} = () => {
         return (
             <TypeCheckbox
                 control = {control}
                 name = {$2.$1}
-                label = {"${1/(.*)/${1:/capitalize}"}
+                label = {"${1/(.*)/${1:/capitalize}/}"}
                 value = {$2.$1 || ''}
-                rules = {${2/(.*)/${2:/capitalize}Rule.$1}
+                rules = {$1Rule.$1}
                 error = {error}
                 disabled = {false}
             />
