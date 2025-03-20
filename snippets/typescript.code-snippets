@@ -56,9 +56,9 @@
             "\t} catch (error: any) {",
             "\t\tconsole.error(\"on${1/(.*)/${1:/capitalize}/} error :: \", error);",
             "\t\tconst messsage = error?.error?.message || ConstMessages.WENT_WRONG;",
-            "\t\tShowToast(messsage, \"error\");",
+            "\t\tShowToast(messsage, \"warning\");",
             "\t} finally {",
-            "\t\tis${1/(.*)/${1:/capitalize}/}Loading.value = true;",
+            "\t\tis${1/(.*)/${1:/capitalize}/}Loading.value = false;",
             "\t}",
             "};"
         ],
