@@ -78,7 +78,7 @@ console.log('$1 => ', $1);
 ### dxrhf
 
 ```
-const $1Rule = ${1/(.*)/${1:/capitalize}Validation;
+const $1Rule = ${1/(.*)/${1:/capitalize}/}Validation;
 const [$1, set${1/(.*)/${1:/capitalize}/}] = React.useState<${1/(.*)/${1:/capitalize}/}Type>({} as ${1/(.*)/${1:/capitalize}/}Type);
 const { handleSubmit, control, reset, formState: { errors } } = useForm<${1/(.*)/${1:/capitalize}/}Type>({});
 React.useEffect(() => {
