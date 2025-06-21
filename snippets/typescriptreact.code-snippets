@@ -4,103 +4,211 @@
         "body": [ "console.log('$1 => ', $1);" ],
         "description": "console log"
     },
-    "ReactHookForms": {
-        "prefix": "dxrhf",
+
+    "Submit Props useMemo": {
+        "prefix": "dxtsbm",
         "body": [
-            "\tconst $1Rule = ${1/(.*)/${1:/capitalize}/}Validation;",
-            "\tconst [$1, set${1/(.*)/${1:/capitalize}/}] = React.useState<${1/(.*)/${1:/capitalize}/}Type>({} as ${1/(.*)/${1:/capitalize}/}Type);",
-            "\tconst { handleSubmit, control, reset, formState: { errors } } = useForm<${1/(.*)/${1:/capitalize}/}Type>({});",
-            "\tReact.useEffect(() => {",
-            "\t\tonDefault${1/(.*)/${1:/capitalize}/}();",
-            "\t\tonReset${1/(.*)/${1:/capitalize}/}();",
-            "\t// eslint-disable-next-line react-hooks/exhaustive-deps",
-            "\t}, []);",
-            "\tconst onDefault${1/(.*)/${1:/capitalize}/} = () => {",
-            "\t\tset${1/(.*)/${1:/capitalize}/}({} as ${1/(.*)/${1:/capitalize}/}Type);",
-            "\t};",
-            "\tconst onReset${1/(.*)/${1:/capitalize}/} = () => {",
-            "\t\treset({ ...$1 });",
-            "\t};",
-            "\tconst onSubmit${1/(.*)/${1:/capitalize}/} = async (data: ${1/(.*)/${1:/capitalize}/}Type) => {",
-            "\t\tconsole.log('data $1 : ', data);",
-            "\t\tRouterChange(AppRouter.INDEX);",
-            "\t};",
-            "\tconst onCancel= () => {",
-            "\t\tRouterChange(AppRouter.INDEX);",
-            "\t};",
-            "\tconst ComponentSubmit = () => (",
-            "\t\t<TypeButton name=\"SendHorizontal\" label=\"Submit\"  isLoading={isSubmitLoading.value} onPress={handleSubmit(onSubmit${1/(.*)/${1:/capitalize}/})} />",
-            "\t);",
-            "\tconst ComponentCancel = () => (",
-            "\t\t<TypeButton name=\"CircleX\" label=\"Cancel\" action=\"secondary\" onPress={onCancel} />",
-            "\t);",
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    isLoading: isSubmitLoading.value,",
+            "    label: t(\"submit\"),",
+            "    name: \"SendHorizontal\" as const,",
+            "    onPress: handleSubmit(onSubmit${2/(.*)/${2:/capitalize}/}),",
+            "  }),",
+            "  [t],",
+            ");"
         ],
-        "description": "React hook forms"
+        "description": "useMemo hook for submit button props"
     },
-    "TypeInput": {
-        "prefix": "dxtip",
+    "Cancel Props useMemo": {
+        "prefix": "dxtcal",
         "body": [
-            "\tconst Component${1/(.*)/${1:/capitalize}/} = () => {",
-            "\t\treturn (",
-            "\t\t\t<TypeInput",
-            "\t\t\t\trequired={true}",
-            "\t\t\t\tcontrol={control}",
-            "\t\t\t\tname={\"$1\"}",
-            "\t\t\t\tlabel={t(\"$1\")}",
-            "\t\t\t\tvalue={$2.$1 || ''}",
-            "\t\t\t\trules={$2Rule.$1}",
-            "\t\t\t\terror={errors[\"$1\"]}",
-            "\t\t\t\tdisabled={false}",
-            "\t\t\t/>",
-            "\t\t);",
-            "\t};"
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    label: t(\"cancel\"),",
+            "    name: \"CircleX\" as const,",
+            "    onPress: onCancel,",
+            "  }),",
+            "  [t],",
+            ");"
         ],
-        "description": "TypeInput component"
+        "description": "useMemo hook for cancel button props"
     },
-    "TypeSelect": {
-        "prefix": "dxtsl",
+    "Markdown Props useMemo": {
+        "prefix": "dxtlmd",
         "body": [
-            "\tconst Component${1/(.*)/${1:/capitalize}/} = () => {",
-            "\t\tconst [$1List, set${1/(.*)/${1:/capitalize}/}List] = React.useState<TypeOptions[]>([]);",
-            "\t\tconst $1Load = async () => {",
-            "\t\t\tconst resp = await on${1/(.*)/${1:/capitalize}/}Load(`\\load$1`);",
-            "\t\t\tset${1/(.*)/${1:/capitalize}/}List(resp || []);",
-            "\t\t};",
-            "\t\treturn (",
-            "\t\t\t<TypeSelect",
-            "\t\t\t\trequired={true}",
-            "\t\t\t\tcontrol={control}",
-            "\t\t\t\tname={\"$1\"}",
-            "\t\t\t\tlabel={t(\"$1\")}",
-            "\t\t\t\tvalue={$2.$1 || ''}",
-            "\t\t\t\trules={$2Rule.$1}",
-            "\t\t\t\terror={errors[\"$1\"]}",
-            "\t\t\t\tdisabled={false}",
-            "\t\t\t\tmultiSelect={false}",
-            "\t\t\t\toptions={$1List}",
-            "\t\t\t/>",
-            "\t\t);",
-            "\t};"
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2}Rule.${1}",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
         ],
-        "description": "TypeSelect component with loading options"
+        "description": "useMemo hook for TypeMarkdown/Field component props"
     },
-    "Component": {
-        "prefix": "dxtcb",
+    "Search Props useMemo": {
+        "prefix": "dxtsrc",
         "body": [
-            "\tconst Component${1/(.*)/${1:/capitalize}/} = () => {",
-            "\t\treturn (",
-            "\t\t\t<TypeCheckbox",
-            "\t\t\t\tcontrol = {control}",
-            "\t\t\t\tname = {\"$1\"}",
-            "\t\t\t\tlabel = {t(\"$1\")}",
-            "\t\t\t\tvalue = {$2.$1 || ''}",
-            "\t\t\t\trules = {$2Rule.$1}",
-            "\t\t\t\terror = {errors[\"$1\"]}",
-            "\t\t\t\tdisabled = {false}",
-            "\t\t\t/>",
-            "\t\t);",
-            "\t};"
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    disabled: false,",
+            "    label: t(\"${1}\"),",
+            "    name: \"${2}\",",
+            "    value: \"\",",
+            "    onChange: (value: string) => {",
+            "      setSearchTerm(value);",
+            "    },",
+            "  }),",
+            "  [t],",
+            ");"
         ],
-        "description": "TypeCheckbox component"
+        "description": "useMemo hook for searchProps with onChange handler"
+    },
+    "Generic Input Props useMemo": {
+        "prefix": "dxtfip",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2}Rule.${1}",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
+        ],
+        "description": "useMemo hook for Input props"
+    },
+    "OTP Props useMemo": {
+        "prefix": "dxtotp",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2}Rule.${1},",
+            "    length: 6",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
+        ],
+        "description": "useMemo hook for OTP field props"
+    },
+
+    "Date Props useMemo": {
+        "prefix": "dxtdat",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    error: errors[\"${1}\"],",
+            "    isDateTimeEnabled: true,",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2}Rule.${1}",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
+        ],
+        "description": "useMemo hook for date field"
+    },
+    "Checkbox Props useMemo": {
+        "prefix": "dxtchb",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\"",
+            "  }),",
+            "  [t],",
+            ");"
+        ],
+        "description": "useMemo hook for simple checkbox field"
+    },
+    "List Props useMemo": {
+        "prefix": "dxtlst",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    options: ${1}Options.value,",
+            "    rules: ${2}Rule.${1},",
+            "    disabled: false,",
+            "    selectionMode: \"multiple\" as const",
+            "  }),",
+            "  [t, errors.${1}], ${1}Options.value],",
+            ");"
+        ],
+        "description": "useMemo hook for select or multi-select List"
+    },
+    "Lang Props useMemo": {
+        "prefix": "dxtlng",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2}Rule.${1},",
+            "    type: \"text\" as const",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
+        ],
+        "description": "useMemo hook for language field"
+    },
+    "Country Props useMemo": {
+        "prefix": "dxtsel",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    multiSelect: false,",
+            "    name: \"${1}\",",
+            "    options: ${1}Options.value,",
+            "    rules: ${2}Rule.${1}",
+            "  }),",
+            "  [t, errors.${1}, ${1}Options.value],",
+            ");"
+        ],
+        "description": "useMemo hook for select"
+    },
+    "Time Props useMemo": {
+        "prefix": "dxttim",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2}Rule.${1},",
+            "    type: 12 as const",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
+        ],
+        "description": "useMemo hook for time field"
     }
+
 }
+
