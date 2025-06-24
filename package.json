@@ -2,7 +2,7 @@
   "name": "dff-txs",
   "displayName": "dff-txs",
   "description": "Dff Typescript Snippets",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "publisher": "dfftech",
   "engines": {
     "vscode": "^1.70.0"
@@ -22,8 +22,20 @@
         "path": "./snippets/typescript.code-snippets"
       },
       {
+        "language": "typescript",
+        "path": "./snippets/typescript-rts.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript-rts-init.code-snippets"
+      },
+      {
         "language": "typescriptreact",
         "path": "./snippets/typescriptreact.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescript-rxs-init.code-snippets"
       }
     ]
   },

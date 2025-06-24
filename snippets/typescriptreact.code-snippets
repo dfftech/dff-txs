@@ -5,17 +5,32 @@
         "description": "console log"
     },
 
+    "Button Props useMemo": {
+        "prefix": "dxtbtn",
+        "body": [
+            "const ${1}ActionProps = useMemo(",
+            "  () => ({",
+            "    label: t(\"${1}\"),",
+            "    name: \"File\" as const,",
+            "    onPress: ${1}Action${2/(.*)/${2:/capitalize}/}),",
+            "  }),",
+            "  [t],",
+            ");"
+        ],
+        "description": "useMemo hook for button props"
+    },
+
     "Submit Props useMemo": {
         "prefix": "dxtsbm",
         "body": [
-            "const ${1}Props = useMemo(",
+            "const submitProps = useMemo(",
             "  () => ({",
-            "    isLoading: isSubmitLoading.value,",
+            "    isLoading: ${1}SaveIsLoading.value,",
             "    label: t(\"submit\"),",
             "    name: \"SendHorizontal\" as const,",
-            "    onPress: handleSubmit(onSubmit${2/(.*)/${2:/capitalize}/}),",
+            "    onPress: handleSubmit(onSubmit${1/(.*)/${1:/capitalize}/}),",
             "  }),",
-            "  [t],",
+            "  [t, ${1}SaveIsLoading.value],",
             ");"
         ],
         "description": "useMemo hook for submit button props"
@@ -23,11 +38,11 @@
     "Cancel Props useMemo": {
         "prefix": "dxtcal",
         "body": [
-            "const ${1}Props = useMemo(",
+            "const cancelProps = useMemo(",
             "  () => ({",
             "    label: t(\"cancel\"),",
             "    name: \"CircleX\" as const,",
-            "    onPress: onCancel,",
+            "    onPress: onCancel${1/(.*)/${1:/capitalize}/},",
             "  }),",
             "  [t],",
             ");"
@@ -136,6 +151,20 @@
         ],
         "description": "useMemo hook for simple checkbox field"
     },
+    "Switch Props useMemo": {
+        "prefix": "dxtswt",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\"",
+            "  }),",
+            "  [t],",
+            ");"
+        ],
+        "description": "useMemo hook for simple Switch field"
+    },
     "List Props useMemo": {
         "prefix": "dxtlst",
         "body": [
@@ -208,6 +237,38 @@
             ");"
         ],
         "description": "useMemo hook for time field"
+    },
+
+    "Markdown Field Edit Props": {
+        "prefix": "dxtmdx",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    control: control,",
+            "    disabled: false,",
+            "    error: errors.${1},",
+            "    label: t(\"${1}\"),",
+            "    name: \"${1}\",",
+            "    rules: ${2:testRule}.${1},",
+            "  }),",
+            "  [t, errors.${1}],",
+            ");"
+        ],
+        "description": "mark down edit "
+    },
+
+    "Markdown Viewer Props useMemo": {
+        "prefix": "dxtmdvprops",
+        "body": [
+            "const ${1}Props = useMemo(",
+            "  () => ({",
+            "    markdownText: ${2:test}.value.${1},",
+            "    className: \"w-full h-[250px]\",",
+            "  }),",
+            "  [${2:test}.value.${1}],",
+            ");"
+        ],
+        "description": "markdown viewer props"
     }
 
 }

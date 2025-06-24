@@ -1,0 +1,44 @@
+{
+    "ApiCallFunction": {
+        "prefix": "dtrac",
+        "body": [
+            "export const ${1}IsLoading = signal<boolean>(false);",
+            "export const ${1}Call = async (params: any) => {",
+            "\ttry {",
+            "\t\t${1}IsLoading.value = true;",
+            "\t\tconst url = MsUrl.${2} + ApiUrl.${3} ;",
+            "\t\tconst resp = await AppHttp.Post(url, params);",
+            "\t\treturn resp;",
+            "\t} catch (error: any) {",
+            "\t\tconst message = error?.error?.message || ConstKeys.WENT_WRONG;",
+            "\t\tShowToast(t(message), \"warning\");",
+            "\t} finally {",
+            "\t\t${1}IsLoading.value = false;",
+            "\t}",
+            "};"
+        ],
+        "description": "Async function with loader, toast, and logging"
+    },
+    "LoadCallFunction": {
+        "prefix": "dtrlc",
+        "body": [
+            "export const ${1}IsLoading = signal<boolean>(false);",
+            "export const ${1}Options = signal<OptionType[]>([]);",
+            "export const ${1}LoadCall = async (id: string, params?: Record<string, string>) => {",
+            "\ttry {",
+            "\t\t${1}IsLoading.value = true;",
+            "\t\tconst resp = await AppHttp.Load(id, params);",
+            "\t\t${1}Options.value = resp;",
+            "\t} catch (error: any) {",
+            "\t\tconst message = error?.error?.message || ConstKeys.WENT_WRONG;",
+            "\t\tShowToast(t(message), \"warning\");",
+            "\t} finally {",
+            "\t\t${1}IsLoading.value = false;",
+            "\t}",
+            "};"
+        ],
+        "description": "Async function with loader, toast, and logging"
+    }
+
+}
+

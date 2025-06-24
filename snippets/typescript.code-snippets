@@ -7,7 +7,7 @@
     "ApiPostCall": {
         "prefix": "dtrpc",
         "body": [
-            "const ${1}PostCall = async (params: Record<string, string>) => {",
+            "const ${1}PostCall = async (params: any) => {",
             "\tconst url = MsUrl.${2} + ApiUrl.${3};",
             "\tconst res = await AppHttp.Post(url, params);",
             "\treturn res;",
@@ -18,7 +18,7 @@
     "ApiGetCall": {
         "prefix": "dtrgc",
         "body": [
-            "const ${1}GetCall = async (params: Record<string, string>) => {",
+            "const ${1}GetCall = async (params: any) => {",
             "\tconst url = MsUrl.${2} + ApiUrl.${3};",
             "\tconst res = await AppHttp.Get(url, params);",
             "\treturn res;",
@@ -29,7 +29,7 @@
     "ApiDeleteCall": {
         "prefix": "dtrdc",
         "body": [
-            "const ${1}DeleteCall = async (params: Record<string, string>) => {",
+            "const ${1}DeleteCall = async (params: any) => {",
             "\tconst url = MsUrl.${2} + ApiUrl.${3};",
             "\tconst res = await AppHttp.Delete(url, params);",
             "\treturn res;",
@@ -37,56 +37,4 @@
         ],
         "description": "API Delete call"
     },
-    "ApiCallFunction": {
-        "prefix": "dtrac",
-        "body": [
-            "export const ${1}IsLoading = signal<boolean>(false);",
-            "export const ${1}Call = async (params: Record<string, string>) => {",
-            "\ttry {",
-            "\t\t${1}IsLoading.value = true;",
-            "\t\tconst url = MsUrl.${2} + ApiUrl.${3} ;",
-            "\t\tconst resp = await AppHttp.Post(url, params);",
-            "\t\treturn resp;",
-            "\t} catch (error: any) {",
-            "\t\tconst message = error?.error?.message || ConstMessages.WENT_WRONG;",
-            "\t\tShowToast(message, \"warning\");",
-            "\t} finally {",
-            "\t\t${1}IsLoading.value = false;",
-            "\t}",
-            "};"
-        ],
-        "description": "Async function with loader, toast, and logging"
-    },
-    "LoadCallFunction": {
-        "prefix": "dtrlc",
-        "body": [
-            "export const ${1}IsLoading = signal<boolean>(false);",
-            "export const ${1}Options = signal<OptionType[]>([]);",
-            "export const ${1}LoadCall = async (id: string, params?: Record<string, string>) => {",
-            "\ttry {",
-            "\t\t${1}IsLoading.value = true;",
-            "\t\tconst resp = await AppHttp.Load(id, params);",
-            "\t\t${1}Options.value = resp;",
-            "\t} catch (error: any) {",
-            "\t\tconst message = error?.error?.message || ConstMessages.WENT_WRONG;",
-            "\t\tShowToast(message, \"warning\");",
-            "\t} finally {",
-            "\t\t${1}IsLoading.value = false;",
-            "\t}",
-            "};"
-        ],
-        "description": "Async function with loader, toast, and logging"
-    },
-    "ServiceImport": {
-        "prefix": "dtrsi",
-        "body": [
-            "/* eslint-disable import/order */",
-            "/* eslint-disable padding-line-between-statements */",
-            "import { ConstMessages, OptionType } from \"dff-util\";",
-            "import { signal } from \"@preact/signals-react\";",
-            "import { ShowToast } from \"@/utils/services/app.event\";",
-            "import AppHttp, { ApiUrl, MsUrl } from \"@/utils/services/app.http\";"
-        ],
-        "description": "Async function with loader, toast, and logging"
-    }
 }
