@@ -1,10 +1,88 @@
 {
     "PrintConsole": {
         "prefix": "dxlog",
-        "body": [ "console.log('$1 => ', $1);" ],
+        "body": [
+            "console.log('$1 => ', $1);"
+        ],
         "description": "console log"
     },
-
+    "react page init": {
+        "prefix": "dxpage",
+        "body": [
+            "import { useEffect } from \"react\";",
+            "import { PageLayout } from \"@/layouts/page-layout\";",
+            "import { useSignals } from \"@preact/signals-react/runtime\";",
+            "import { useTranslation } from \"react-i18next\";",
+            "export default function ${1/(.*)/${1:/capitalize}/}() {",
+            "  useSignals();",
+            "  const { t } = useTranslation();",
+            "",
+            "  useEffect(() => {",
+            "  }, []);",
+            "",
+            "  return (",
+            "    <PageLayout>",
+            "    </PageLayout>",
+            "  );",
+            "}",
+            ""
+        ],
+        "description": "react page init"
+    },
+    "React hook forms initial": {
+        "prefix": "dxrhf",
+        "body": [
+            "  const ${1} = useSignal<${1/(.*)/${1:/capitalize}/}Type>({ ...${1}InitValues });",
+            "  const ${1}Rule = ${1}Validation;",
+            "  const {",
+            "    handleSubmit,",
+            "    control,",
+            "    reset,",
+            "    formState: { errors },",
+            "  } = useForm<${1/(.*)/${1:/capitalize}/}Type>({});",
+            "",
+            "  const onReset${1/(.*)/${1:/capitalize}/} = () => {",
+            "    reset({ ...${1}.value });",
+            "  };",
+            "",
+            "  const onSubmit${1/(.*)/${1:/capitalize}/} = async (data: ${1/(.*)/${1:/capitalize}/}Type) => {",
+            "    ${1}.value = data;",
+            "    const resp = await ${1}SaveCall(${1}.value);",
+            "    if (resp) {",
+            "      ShowToast(t(ConstKeys.SAVED_SUCCESSFULLY), \"success\");",
+            "    }",
+            "  };",
+            "",
+            "  const onCancel${1/(.*)/${1:/capitalize}/} = () => {",
+            "    onReset${1/(.*)/${1:/capitalize}/}();",
+            "  };",
+            "",
+            "  const onReload${1/(.*)/${1:/capitalize}/} = async () => {",
+            "  };",
+            "",
+            "  const submitProps = useMemo(",
+            "    () => ({",
+            "      isLoading: ${1}SaveIsLoading.value,",
+            "      label: t(\"submit\"),",
+            "      name: \"SendHorizontal\" as const,",
+            "      onPress: handleSubmit(onSubmit${1/(.*)/${1:/capitalize}/}),",
+            "    }),",
+            "    [t, ${1}SaveIsLoading.value],",
+            "  );",
+            "",
+            "  const cancelProps = useMemo(",
+            "    () => ({",
+            "      action: \"secondary\" as const,",
+            "      label: t(\"cancel\"),",
+            "      name: \"CircleX\" as const,",
+            "      onPress: onCancel${1/(.*)/${1:/capitalize}/},",
+            "    }),",
+            "    [t],",
+            "  );",
+            "",
+        ],
+        "description": "react hook forms call"
+    },
     "Button Props useMemo": {
         "prefix": "dxtbtn",
         "body": [
@@ -19,7 +97,6 @@
         ],
         "description": "useMemo hook for button props"
     },
-
     "Submit Props useMemo": {
         "prefix": "dxtsbm",
         "body": [
@@ -52,7 +129,7 @@
     "Markdown Props useMemo": {
         "prefix": "dxtlmd",
         "body": [
-            "const ${1}Props = useMemo(",
+            "const ${1}MdProps = useMemo(",
             "  () => ({",
             "    control: control,",
             "    disabled: false,",
@@ -119,7 +196,6 @@
         ],
         "description": "useMemo hook for OTP field props"
     },
-
     "Date Props useMemo": {
         "prefix": "dxtdat",
         "body": [
@@ -238,11 +314,10 @@
         ],
         "description": "useMemo hook for time field"
     },
-
     "Markdown Field Edit Props": {
         "prefix": "dxtmdx",
         "body": [
-            "const ${1}Props = useMemo(",
+            "const ${1}MdxProps = useMemo(",
             "  () => ({",
             "    control: control,",
             "    disabled: false,",
@@ -256,11 +331,10 @@
         ],
         "description": "mark down edit "
     },
-
     "Markdown Viewer Props useMemo": {
         "prefix": "dxtmdvprops",
         "body": [
-            "const ${1}Props = useMemo(",
+            "const ${1}MdvProps = useMemo(",
             "  () => ({",
             "    markdownText: ${2:test}.value.${1},",
             "    className: \"w-full h-[250px]\",",
@@ -270,6 +344,4 @@
         ],
         "description": "markdown viewer props"
     }
-
 }
-

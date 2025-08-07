@@ -6,7 +6,7 @@
             "export const ${1}Call = async (params: any) => {",
             "\ttry {",
             "\t\t${1}IsLoading.value = true;",
-            "\t\tconst url = MsUrl.${2} + ApiUrl.${3} ;",
+            "\t\tconst url = AppHttp.MsUrl.main + '/' ;",
             "\t\tconst resp = await AppHttp.Post(url, params);",
             "\t\treturn resp;",
             "\t} catch (error: any) {",
@@ -39,6 +39,4 @@
         ],
         "description": "Async function with loader, toast, and logging"
     }
-
 }
-

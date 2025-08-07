@@ -1,14 +1,16 @@
 {
     "PrintConsole": {
         "prefix": "dtlog",
-        "body": [ "console.log('$1 => ', $1);" ],
+        "body": [
+            "console.log('$1 => ', $1);"
+        ],
         "description": "console log"
     },
     "ApiPostCall": {
         "prefix": "dtrpc",
         "body": [
             "const ${1}PostCall = async (params: any) => {",
-            "\tconst url = MsUrl.${2} + ApiUrl.${3};",
+            "\tconst url = AppHttp.MsUrl.main + '/';",
             "\tconst res = await AppHttp.Post(url, params);",
             "\treturn res;",
             "};"
@@ -19,7 +21,7 @@
         "prefix": "dtrgc",
         "body": [
             "const ${1}GetCall = async (params: any) => {",
-            "\tconst url = MsUrl.${2} + ApiUrl.${3};",
+            "\tconst url = AppHttp.MsUrl.main + '/';",
             "\tconst res = await AppHttp.Get(url, params);",
             "\treturn res;",
             "};"
@@ -30,7 +32,7 @@
         "prefix": "dtrdc",
         "body": [
             "const ${1}DeleteCall = async (params: any) => {",
-            "\tconst url = MsUrl.${2} + ApiUrl.${3};",
+            "\tconst url = AppHttp.MsUrl.main + '/';",
             "\tconst res = await AppHttp.Delete(url, params);",
             "\treturn res;",
             "};"
