@@ -1,6 +1,6 @@
 {
     "ApiCallFunction": {
-        "prefix": "dtrac",
+        "prefix": "dtxrac",
         "body": [
             "export const ${1}IsLoading = signal<boolean>(false);",
             "export const ${1}Call = async (params: any) => {",
@@ -20,7 +20,7 @@
         "description": "Async function with loader, toast, and logging"
     },
     "LoadCallFunction": {
-        "prefix": "dtrlc",
+        "prefix": "dtxrlc",
         "body": [
             "export const ${1}IsLoading = signal<boolean>(false);",
             "export const ${1}Options = signal<OptionType[]>([]);",

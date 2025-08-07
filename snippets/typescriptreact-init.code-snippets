@@ -1,6 +1,6 @@
 {
     "Entity View Page": {
-        "prefix": "dxviewpage",
+        "prefix": "dxrviewpage",
         "body": [
             "import { useSignal } from \"@preact/signals-react\";",
             "import { useSignals } from \"@preact/signals-react/runtime\";",
@@ -99,7 +99,7 @@
         "description": "Signal-based View Page with reload/edit/cancel logic"
     },
     "Entity Form Page": {
-        "prefix": "dxformpage",
+        "prefix": "dxrformpage",
         "body": [
             "import { useForm } from \"react-hook-form\";",
             "import { useSignal } from \"@preact/signals-react\";",
@@ -233,7 +233,7 @@
         "description": "Form page for entity using react-hook-form and Preact signals"
     },
     "Entity List Page": {
-        "prefix": "dxlistpage",
+        "prefix": "dxrlistpage",
         "body": [
             "import { useTranslation } from \"react-i18next\";",
             "import { AgGridReact } from \"ag-grid-react\";",
@@ -345,7 +345,7 @@
         "description": "List page with AG Grid, Search, and Add for signal-based entity"
     },
     "Entity Page with Drawer": {
-        "prefix": "dxinitpage",
+        "prefix": "dxrinitpage",
         "body": [
             "import { Drawer, DrawerContent, DrawerBody } from \"@heroui/react\";",
             "import { useSignals } from \"@preact/signals-react/runtime\";",

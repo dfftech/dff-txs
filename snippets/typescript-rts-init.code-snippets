@@ -1,6 +1,6 @@
 {
     "Type and Init Values for Entity": {
-        "prefix": "dxinittyp",
+        "prefix": "dtxinittyp",
         "body": [
             "export type ${1/(.*)/${1:/capitalize}/}Type = {",
             "  id: string;",
@@ -20,7 +20,7 @@
         "description": "Generates a type and initial values for an entity"
     },
     "Validation Schema for Entity": {
-        "prefix": "dxinitvalid",
+        "prefix": "dtxinitvalid",
         "body": [
             "import { ConstKeys } from \"dff-util\";",
             "",
@@ -37,7 +37,7 @@
         "description": "Validation rules object for an entity"
     },
     "Entity Signals and Calls": {
-        "prefix": "dxinitsrv",
+        "prefix": "dtxinitsrv",
         "body": [
             "import { signal } from \"@preact/signals\";",
             "import { ConstKeys } from \"dff-util\";",
@@ -133,7 +133,7 @@
         "description": "Signal state and API methods for an entity"
     },
     "AG Grid Init": {
-        "prefix": "dxinitgrid",
+        "prefix": "dtxrinitgrid",
         "body": [
             "import { IDatasource, IGetRowsParams, ColDef } from \"ag-grid-community\";",
             "import { GridOptions } from \"ag-grid-community\";",
