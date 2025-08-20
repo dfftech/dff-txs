@@ -1,5 +1,5 @@
 {
-    "Type and Init Values for Entity": {
+    "Type for Entity": {
         "prefix": "dtxinittyp",
         "body": [
             "export type ${1/(.*)/${1:/capitalize}/}Type = {",
@@ -17,14 +17,28 @@
             "};",
             ""
         ],
-        "description": "Generates a type and initial values for an entity"
+        "description": "Generates a type  for an entity"
+    },
+    "Data Values for Entity": {
+        "prefix": "dtxinitdata",
+        "body": [
+            "import { ${1/(.*)/${1:/capitalize}/}Type } from './types';",
+            "export const ${1}InitValues: ${1/(.*)/${1:/capitalize}/}Type = {",
+            "  id: \"\",",
+            "  nameLang: {},",
+            "  active: true,",
+            "  updatedAt: new Date().toISOString(),",
+            "};",
+            ""
+        ],
+        "description": "Generates a data values for an entity"
     },
     "Validation Schema for Entity": {
         "prefix": "dtxinitvalid",
         "body": [
             "import { ConstKeys } from \"dff-util\";",
             "",
-            "export const ${1}Validation = {",
+            "export const ${1}ValidationRules = {",
             "  active: {",
             "    required: {",
             "      value: true,",

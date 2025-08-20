@@ -26,7 +26,8 @@ A comprehensive VSCode extension providing TypeScript and React snippets for rap
 | `dtrdc` | typescript | API Delete call |
 | `dtxrac` | typescript | Async function with loader, toast, and logging |
 | `dtxrlc` | typescript | Async function with loader, toast, and logging |
-| `dtxinittyp` | typescript | Generates a type and initial values for an entity |
+| `dtxinittyp` | typescript | Generates a type an entity |
+| `dtxinitdata` | typescript | Generates a initial values for an entity |
 | `dtxinitvalid` | typescript | Validation rules object for an entity |
 | `dtxinitsrv` | typescript | Signal state and API methods for an entity |
 | `dtxrinitgrid` | typescript | AG Grid configuration with columnDefs and getDataSource for an entity |
@@ -34,25 +35,25 @@ A comprehensive VSCode extension providing TypeScript and React snippets for rap
 | `dxpage` | typescriptreact | react page init |
 | `dxrhf` | typescriptreact | react hook forms call |
 | `dxtbtn` | typescriptreact | useMemo hook for button props |
-| `dxtsbm` | typescriptreact | useMemo hook for submit button props |
-| `dxtcal` | typescriptreact | useMemo hook for cancel button props |
+| `dxtsbn` | typescriptreact | useMemo hook for submit button props |
+| `dxtcan` | typescriptreact | useMemo hook for cancel button props |
 | `dxtlmd` | typescriptreact | useMemo hook for TypeMarkdown/Field component props |
-| `dxtsrc` | typescriptreact | useMemo hook for searchProps with onChange handler |
-| `dxtfip` | typescriptreact | useMemo hook for Input props |
+| `dxtsrh` | typescriptreact | useMemo hook for searchProps with onChange handler |
+| `dxtip` | typescriptreact | useMemo hook for Input props |
 | `dxtotp` | typescriptreact | useMemo hook for OTP field props |
-| `dxtdat` | typescriptreact | useMemo hook for date field |
+| `dxtdate` | typescriptreact | useMemo hook for date field |
 | `dxtchb` | typescriptreact | useMemo hook for simple checkbox field |
 | `dxtswt` | typescriptreact | useMemo hook for simple Switch field |
 | `dxtlst` | typescriptreact | useMemo hook for select or multi-select List |
 | `dxtlng` | typescriptreact | useMemo hook for language field |
 | `dxtsel` | typescriptreact | useMemo hook for select |
-| `dxttim` | typescriptreact | useMemo hook for time field |
+| `dxttime` | typescriptreact | useMemo hook for time field |
 | `dxtmdx` | typescriptreact | mark down edit |
 | `dxtmdvprops` | typescriptreact | markdown viewer props |
 | `dxrviewpage` | typescriptreact | Signal-based View Page with reload/edit/cancel logic |
 | `dxrformpage` | typescriptreact | Form page for entity using react-hook-form and Preact signals |
 | `dxrlistpage` | typescriptreact | List page with AG Grid, Search, and Add for signal-based entity |
-| `dxrinitpage` | typescriptreact | Page component with list + drawer switching between Form and View |
+| `dxdrawinitpage` | typescriptreact | Page component with list + drawer switching between Form and View |
 | `dxinitscreen` | typescriptreact | Suspense-based page entry with permission check and fallback skeletons |
 
 ## Usage

@@ -2,7 +2,7 @@
   "name": "dff-txs",
   "displayName": "dff-txs",
   "description": "Dff Typescript Snippets",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "dfftech",
   "engines": {
     "vscode": "^1.70.0"

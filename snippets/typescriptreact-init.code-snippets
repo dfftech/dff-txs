@@ -111,7 +111,7 @@
             "import { PageLayout } from \"@/layouts/page-layout\";",
             "",
             "import { ${1}InitValues, ${1/(.*)/${1:/capitalize}/}Type } from \"./common/types\";",
-            "import { ${1}Validation } from \"./common/validation\";",
+            "import { ${1}ValidationRules } from \"./common/validation\";",
             "import {",
             "  editModeUpdate,",
             "  ${1}SelectedId,",
@@ -136,7 +136,7 @@
             "  }, []);",
             "",
             "  const ${1} = useSignal<${1/(.*)/${1:/capitalize}/}Type>({ ...${1}InitValues });",
-            "  const ${1}Rule = ${1}Validation;",
+            "  const formRules = ${1}ValidationRules;",
             "  const {",
             "    handleSubmit,",
             "    control,",
@@ -345,7 +345,7 @@
         "description": "List page with AG Grid, Search, and Add for signal-based entity"
     },
     "Entity Page with Drawer": {
-        "prefix": "dxrinitpage",
+        "prefix": "dxdrawinitpage",
         "body": [
             "import { Drawer, DrawerContent, DrawerBody } from \"@heroui/react\";",
             "import { useSignals } from \"@preact/signals-react/runtime\";",

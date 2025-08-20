@@ -33,7 +33,7 @@
         "prefix": "dxrhf",
         "body": [
             "  const ${1} = useSignal<${1/(.*)/${1:/capitalize}/}Type>({ ...${1}InitValues });",
-            "  const ${1}Rule = ${1}Validation;",
+            "  const formRules = { ...${1}ValidationRules };",
             "  const {",
             "    handleSubmit,",
             "    control,",
@@ -90,7 +90,7 @@
             "  () => ({",
             "    label: t(\"${1}\"),",
             "    name: \"File\" as const,",
-            "    onPress: ${1}Action${2/(.*)/${2:/capitalize}/}),",
+            "    onPress: ${1}Action(),",
             "  }),",
             "  [t],",
             ");"
@@ -98,7 +98,7 @@
         "description": "useMemo hook for button props"
     },
     "Submit Props useMemo": {
-        "prefix": "dxtsbm",
+        "prefix": "dxtsbn",
         "body": [
             "const submitProps = useMemo(",
             "  () => ({",
@@ -113,7 +113,7 @@
         "description": "useMemo hook for submit button props"
     },
     "Cancel Props useMemo": {
-        "prefix": "dxtcal",
+        "prefix": "dxtcan",
         "body": [
             "const cancelProps = useMemo(",
             "  () => ({",
@@ -136,7 +136,7 @@
             "    error: errors.${1},",
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
-            "    rules: ${2}Rule.${1}",
+            "    rules: formRules.${1}",
             "  }),",
             "  [t, errors.${1}],",
             ");"
@@ -144,7 +144,7 @@
         "description": "useMemo hook for TypeMarkdown/Field component props"
     },
     "Search Props useMemo": {
-        "prefix": "dxtsrc",
+        "prefix": "dxtsrh",
         "body": [
             "const ${1}Props = useMemo(",
             "  () => ({",
@@ -162,7 +162,7 @@
         "description": "useMemo hook for searchProps with onChange handler"
     },
     "Generic Input Props useMemo": {
-        "prefix": "dxtfip",
+        "prefix": "dxtip",
         "body": [
             "const ${1}Props = useMemo(",
             "  () => ({",
@@ -171,7 +171,7 @@
             "    error: errors.${1},",
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
-            "    rules: ${2}Rule.${1}",
+            "    rules: formRules.${1}",
             "  }),",
             "  [t, errors.${1}],",
             ");"
@@ -188,7 +188,7 @@
             "    error: errors.${1},",
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
-            "    rules: ${2}Rule.${1},",
+            "    rules: formRules.${1},",
             "    length: 6",
             "  }),",
             "  [t, errors.${1}],",
@@ -197,7 +197,7 @@
         "description": "useMemo hook for OTP field props"
     },
     "Date Props useMemo": {
-        "prefix": "dxtdat",
+        "prefix": "dxtdate",
         "body": [
             "const ${1}Props = useMemo(",
             "  () => ({",
@@ -206,7 +206,7 @@
             "    isDateTimeEnabled: true,",
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
-            "    rules: ${2}Rule.${1}",
+            "    rules: formRules.${1}",
             "  }),",
             "  [t, errors.${1}],",
             ");"
@@ -250,7 +250,7 @@
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
             "    options: ${1}Options.value,",
-            "    rules: ${2}Rule.${1},",
+            "    rules: formRules.${1},",
             "    disabled: false,",
             "    selectionMode: \"multiple\" as const",
             "  }),",
@@ -269,7 +269,7 @@
             "    error: errors.${1},",
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
-            "    rules: ${2}Rule.${1},",
+            "    rules: formRules.${1},",
             "    type: \"text\" as const",
             "  }),",
             "  [t, errors.${1}],",
@@ -289,7 +289,7 @@
             "    multiSelect: false,",
             "    name: \"${1}\",",
             "    options: ${1}Options.value,",
-            "    rules: ${2}Rule.${1}",
+            "    rules: formRules.${1}",
             "  }),",
             "  [t, errors.${1}, ${1}Options.value],",
             ");"
@@ -297,7 +297,7 @@
         "description": "useMemo hook for select"
     },
     "Time Props useMemo": {
-        "prefix": "dxttim",
+        "prefix": "dxttime",
         "body": [
             "const ${1}Props = useMemo(",
             "  () => ({",
@@ -306,7 +306,7 @@
             "    error: errors.${1},",
             "    label: t(\"${1}\"),",
             "    name: \"${1}\",",
-            "    rules: ${2}Rule.${1},",
+            "    rules: formRules.${1},",
             "    type: 12 as const",
             "  }),",
             "  [t, errors.${1}],",
